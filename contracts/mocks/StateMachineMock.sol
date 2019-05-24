@@ -1,4 +1,4 @@
-pragma solidity 0.4.23;
+pragma solidity ^0.5.0;
 
 import "../../contracts/StateMachine.sol";
 
@@ -12,7 +12,7 @@ contract StateMachineMock is StateMachine {
     constructor() public { 
     }
 
-    function setStatesHelper(bytes32[] _states) public {
+    function setStatesHelper(bytes32[] memory _states) public {
         setStates(_states);
     }
 

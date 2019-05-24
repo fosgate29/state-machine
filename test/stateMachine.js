@@ -4,12 +4,12 @@ const StateMachineMock = artifacts.require('StateMachineMock');
 
 contract('StateMachine', accounts => {
   let stateMachine;
-  const invalidState = 'invalid';
-  const zeroState = 0;
-  const state0 = 'STATE0';
-  const state1 = 'STATE1';
-  const state2 = 'STATE2';
-  const state3 = 'STATE3';
+  const invalidState = web3.utils.padRight(web3.utils.fromAscii('invalid'), 34);
+  const zeroState = web3.utils.padRight(web3.utils.fromAscii(0), 34);;
+  const state0 = web3.utils.padRight(web3.utils.fromAscii('STATE0'), 34);
+  const state1 = web3.utils.padRight(web3.utils.fromAscii('STATE1'), 34);
+  const state2 = web3.utils.padRight(web3.utils.fromAscii('STATE2'), 34);
+  const state3 = web3.utils.padRight(web3.utils.fromAscii('STATE3'), 34);
   let dummyFunctionSelector;
 
 
@@ -47,7 +47,7 @@ contract('StateMachine', accounts => {
     //no states should now be set, so the current stateId should not have been set
     let currentState;
     currentState = await stateMachine.getCurrentStateId.call();
-    assert.equal(web3.toUtf8(currentState), 0);
+    assert.equal(web3.utils.padRight(web3.utils.fromAscii(currentState), 34), zeroState);
   });
 
   it('should be possible to allow a function', async () => {

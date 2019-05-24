@@ -1,4 +1,4 @@
-pragma solidity 0.4.23;
+pragma solidity ^0.5.0;
 
 import "../TimedStateMachine.sol";
 
@@ -18,7 +18,7 @@ contract StateMachineUser is TimedStateMachine {
     /* The 'checkAllowed' modifier will perform conditional transitions
     and check that the function is allowed at the current state */
 
-    function() public checkAllowed {
+    function() external checkAllowed {
         // Do something
     }
         
